@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_widgets/card_widget.dart';
+import 'package:test_widgets/widgets/card_widget.dart';
 import 'package:test_widgets/colors.dart';
-import 'package:test_widgets/notes_widget.dart';
-import 'package:test_widgets/pages_widget.dart';
+import 'package:test_widgets/widgets/icon_button_widget.dart';
+import 'package:test_widgets/widgets/notes_widget.dart';
+import 'package:test_widgets/widgets/pages_widget.dart';
 
 class WidgetsPage extends StatelessWidget {
   const WidgetsPage({super.key});
@@ -27,13 +28,25 @@ class WidgetsPage extends StatelessWidget {
                 pagesDateText: 'Friday, July 3, 1987',
                 pageNumberText: 'Page 2',
               ),
-              CardWidget(
-                cardTitle: "Stephen King",
-                cardDateText: "05/12/1898 - 09/25/1970",
-                volumeNumberText: "147 Volumes",
-                cardBackgroundColor: AppColor.cardBackgroundColor,
-                cardBottomColor: AppColor.cardBottomColor,
+              Row(
+                children: [
+                  CardWidget(
+                    cardTitle: "Stephen King",
+                    cardDateText: "05/12/1898 - 09/25/1970",
+                    volumeNumberText: "147 Volumes",
+                    cardBackgroundColor: AppColor.cardBackgroundColor,
+                    cardBottomColor: AppColor.cardBottomColor,
+                  ),
+                  CardWidget(
+                    cardTitle: "Jack London",
+                    cardDateText: "05/12/1898 - 09/25/1970",
+                    volumeNumberText: "147 Volumes",
+                    cardBackgroundColor: AppColor.backgroundColor,
+                    cardBottomColor: AppColor.bottomColor,
+                  ),
+                ],
               ),
+              IconButtonWidget(icon: Icons.search),
             ],
           ),
         ),

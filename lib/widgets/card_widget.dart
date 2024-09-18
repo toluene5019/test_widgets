@@ -20,7 +20,7 @@ class CardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.only(top: 30, right: 20, bottom: 20, left: 20),
+      padding: const EdgeInsets.only(top: 30, right: 14, bottom: 20, left: 14),
       decoration: BoxDecoration(
         color: cardBackgroundColor,
         border: Border(
