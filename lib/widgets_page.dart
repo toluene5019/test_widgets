@@ -22,11 +22,15 @@ class WidgetsPage extends StatelessWidget {
                 idText: 'NS 131',
                 yearsText: '1994-1995',
                 icon: Icons.location_on_outlined,
+                notesBackgroundColor: AppColor.backgroundColor,
+                notesBottomColor: AppColor.bottomColor,
               ),
               PagesWidget(
                 pagesTitle: "Reading at Christchurch",
                 pagesDateText: 'Friday, July 3, 1987',
                 pageNumberText: 'Page 2',
+                pageBackgroundColor: AppColor.backgroundColor,
+                pageBottomColor: AppColor.bottomColor,
               ),
               Row(
                 children: [

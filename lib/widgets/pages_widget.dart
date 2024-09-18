@@ -5,12 +5,16 @@ class PagesWidget extends StatelessWidget {
   final String pagesTitle;
   final String pagesDateText;
   final String pageNumberText;
+  final Color pageBackgroundColor;
+  final Color pageBottomColor;
 
   const PagesWidget({
     super.key,
     required this.pagesTitle,
     required this.pagesDateText,
     required this.pageNumberText,
+    required this.pageBackgroundColor,
+    required this.pageBottomColor,
   });
 
   @override
@@ -19,10 +23,10 @@ class PagesWidget extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.only(top: 20, right: 20, bottom: 12, left: 20),
       decoration: BoxDecoration(
-        color: AppColor.backgroundColor,
-        border: const Border(
+        color: pageBackgroundColor,
+        border: Border(
           bottom: BorderSide(
-            color: AppColor.bottomColor,
+            color: pageBottomColor,
             width: 8,
           ),
         ),

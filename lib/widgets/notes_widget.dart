@@ -6,6 +6,8 @@ class NotesWidget extends StatelessWidget {
   final String locationText;
   final String idText;
   final String yearsText;
+  final Color notesBackgroundColor;
+  final Color notesBottomColor;
 
   final IconData icon;
 
@@ -16,6 +18,8 @@ class NotesWidget extends StatelessWidget {
     required this.idText,
     required this.yearsText,
     required this.icon,
+    required this.notesBackgroundColor,
+    required this.notesBottomColor,
   });
   @override
   Widget build(BuildContext context) {
@@ -23,10 +27,10 @@ class NotesWidget extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.only(top: 20, right: 20, bottom: 12, left: 20),
       decoration: BoxDecoration(
-        color: AppColor.backgroundColor,
-        border: const Border(
+        color: notesBackgroundColor,
+        border: Border(
           bottom: BorderSide(
-            color: AppColor.bottomColor,
+            color: notesBottomColor,
             width: 8,
           ),
         ),
