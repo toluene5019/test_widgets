@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_widgets/widgets/book_info_card.dart';
 import 'package:test_widgets/widgets/card_widget.dart';
 import 'package:test_widgets/colors.dart';
 import 'package:test_widgets/widgets/icon_button_widget.dart';
@@ -51,6 +52,23 @@ class WidgetsPage extends StatelessWidget {
                 ],
               ),
               IconButtonWidget(icon: Icons.search),
+              BookInfoCard(
+                bookInfoAuthor: "George Orwell",
+                bookInfoTitle: "Nineteen Eighty-Four",
+                bookInfoDesc:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel.",
+                bookInfoPageNmber: "PAGE 234",
+                bookInfoVolume: "VOLUME NS v293",
+                bookInfoWord: "Word",
+                bookInfoAddress: "London, UK",
+                bookInfoDate: "Friday, Jan 18, 1990",
+                cardBackgroundColor: AppColor.backgroundColor,
+                cardBottomColor: AppColor.cardBottomColor,
+                iconTitle: Icons.bookmark_border_outlined,
+                iconWord: Icons.people,
+                iconAddress: Icons.location_on_outlined,
+                iconDate: Icons.calendar_month,
+              )
             ],
           ),
         ),

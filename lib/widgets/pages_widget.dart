@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_widgets/colors.dart';
 
 class PagesWidget extends StatelessWidget {
   final String pagesTitle;
