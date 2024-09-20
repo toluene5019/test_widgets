@@ -36,6 +36,8 @@ class CardWidget extends StatelessWidget {
         children: [
           Text(
             cardTitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22.0,
@@ -45,6 +47,8 @@ class CardWidget extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             cardDateText,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontSize: 14.0,
               color: Colors.grey,
@@ -53,6 +57,8 @@ class CardWidget extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             volumeNumberText,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,

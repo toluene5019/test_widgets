@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:test_widgets/colors.dart';
 
 class BookInfoCard extends StatelessWidget {
-  final String bookInfoAuthor;
-  final String bookInfoTitle;
-  final String bookInfoDesc;
-  final String bookInfoPageNmber;
-  final String bookInfoVolume;
-  final String bookInfoWord;
+  final String authorName;
+  final String bookTitle;
+  final String bookDescription;
+  final String pageNumber;
+  final String volumeNumber;
+  final String wordInfo;
   final String bookInfoAddress;
   final String bookInfoDate;
   final Color cardBackgroundColor;
@@ -19,12 +19,12 @@ class BookInfoCard extends StatelessWidget {
 
   const BookInfoCard({
     super.key,
-    required this.bookInfoAuthor,
-    required this.bookInfoTitle,
-    required this.bookInfoDesc,
-    required this.bookInfoPageNmber,
-    required this.bookInfoVolume,
-    required this.bookInfoWord,
+    required this.authorName,
+    required this.bookTitle,
+    required this.bookDescription,
+    required this.pageNumber,
+    required this.volumeNumber,
+    required this.wordInfo,
     required this.bookInfoAddress,
     required this.bookInfoDate,
     required this.cardBackgroundColor,
@@ -61,14 +61,14 @@ class BookInfoCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      bookInfoAuthor,
+                      authorName,
                       style: const TextStyle(
                         fontSize: 22.0,
                         color: Colors.black,
                       ),
                     ),
                     Text(
-                      bookInfoTitle,
+                      bookTitle,
                       style: const TextStyle(
                           fontSize: 18.0, fontWeight: FontWeight.w300),
                     )
@@ -80,11 +80,14 @@ class BookInfoCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Icon(
-                      iconTitle,
-                      size: 30.0,
-                      color: AppColor.iconColor,
-                    ),
+                    IconButton(
+                      icon: Icon(
+                        iconTitle,
+                        size: 30.0,
+                        color: AppColor.iconColor,
+                      ),
+                      onPressed: () {},
+                    )
                   ],
                 ),
               )
@@ -94,7 +97,7 @@ class BookInfoCard extends StatelessWidget {
             height: 10,
           ),
           Text(
-            bookInfoDesc,
+            bookDescription,
             style: const TextStyle(
               fontSize: 16.0,
               color: Colors.black,
@@ -106,7 +109,7 @@ class BookInfoCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Text(
-                  bookInfoPageNmber,
+                  pageNumber,
                   style: const TextStyle(
                     fontSize: 16.0,
                   ),
@@ -121,7 +124,7 @@ class BookInfoCard extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Text(
-                  bookInfoVolume,
+                  volumeNumber,
                   style: const TextStyle(
                       fontSize: 16.0, fontWeight: FontWeight.w300),
                 ),
@@ -143,7 +146,7 @@ class BookInfoCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        bookInfoWord,
+                        wordInfo,
                         style: const TextStyle(
                           fontSize: 14.0,
                         ),
