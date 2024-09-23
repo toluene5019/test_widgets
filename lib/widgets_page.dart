@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_widgets/widgets/book_info_card.dart';
 import 'package:test_widgets/widgets/card_widget.dart';
 import 'package:test_widgets/colors.dart';
+import 'package:test_widgets/widgets/content_widget.dart';
 import 'package:test_widgets/widgets/icon_button_widget.dart';
 import 'package:test_widgets/widgets/notes_widget.dart';
 import 'package:test_widgets/widgets/pages_widget.dart';
@@ -32,6 +33,22 @@ class WidgetsPage extends StatelessWidget {
                 pageNumberText: 'Page 2',
                 pageBackgroundColor: AppColor.backgroundColor,
                 pageBottomColor: AppColor.bottomColor,
+              ),
+              ContentWidget.notes(
+                title: "NOTES OF MEETINGS",
+                locationOrDateText: "Australia & New Zealand",
+                idVolumeText: 'NS 131',
+                yearsOrPageText: '1994-1995',
+                icon: Icons.location_on_outlined,
+                backgroundColor: AppColor.backgroundColor,
+                bottomColor: AppColor.bottomColor,
+              ),
+              ContentWidget.pages(
+                title: "Reading at Christchurch",
+                locationOrDateText: 'Friday, July 3, 1987',
+                yearsOrPageText: 'Page 2',
+                backgroundColor: AppColor.backgroundColor,
+                bottomColor: AppColor.bottomColor,
               ),
               Row(
                 children: [
