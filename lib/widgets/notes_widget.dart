@@ -60,18 +60,24 @@ class NotesWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(
-                          icon,
-                          size: 14.0,
-                          color: AppColor.iconColor,
-                        ),
-                        Text(
-                          locationText,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.blueGrey,
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                icon,
+                                size: 14.0,
+                                color: AppColor.iconColor,
+                              ),
+                              Text(
+                                locationText,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.blueGrey,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],

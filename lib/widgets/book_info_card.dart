@@ -201,6 +201,8 @@ class BookInfoCard extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
                         bookInfoDate,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: const TextStyle(
                           fontSize: 14.0,
                         ),
