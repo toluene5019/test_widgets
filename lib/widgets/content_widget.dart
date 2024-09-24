@@ -99,8 +99,9 @@ class ContentWidget extends StatelessWidget {
                 flex: 1,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    if (key == ContentWidget.notes)
+                    if (idVolumeText != null)
                       Text(
                         idVolumeText!,
                         style: const TextStyle(
@@ -110,9 +111,11 @@ class ContentWidget extends StatelessWidget {
                       ),
                     Text(
                       yearsOrPageText,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16.0,
-                        color: Colors.blueGrey,
+                        color: idVolumeText != null
+                            ? Colors.blueGrey
+                            : Colors.black,
                       ),
                     ),
                   ],

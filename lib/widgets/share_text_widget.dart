@@ -43,7 +43,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
           Row(
             children: [
               Expanded(
-                flex: 5,
+                flex: 4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -58,7 +58,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                     Text(
                       widget.authorName,
                       style: const TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 18.0,
                         color: Colors.grey,
                       ),
                     )
@@ -87,16 +87,16 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
           Row(
             children: [
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       widget.volumeNumberText,
                       style: const TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
-                      ),
+                          fontSize: 18.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -118,16 +118,26 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      widget.detailsText,
-                      style: const TextStyle(
-                        fontSize: 18.0,
-                        color: AppColor.iconColor,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          widget.detailsText,
+                          style: const TextStyle(
+                            fontSize: 18.0,
+                            color: AppColor.iconColor,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.keyboard_arrow_down,
+                          size: 24.0,
+                          color: AppColor.iconColor,
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -135,17 +145,59 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
             ],
           ),
           const Divider(),
-          SelectableText(
-            widget.bookText,
-            style: const TextStyle(
-              fontSize: 16.0,
-              color: Colors.black,
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: 16,
+              horizontal: 8,
             ),
-            onSelectionChanged: (selection, cause) {
-              setState(() {
-                selectedText = selection.textInside(widget.bookText);
-              });
-            },
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              children: [
+                SelectableText(
+                  widget.bookText,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black,
+                  ),
+                  onSelectionChanged: (selection, cause) {
+                    setState(() {
+                      selectedText = selection.textInside(widget.bookText);
+                    });
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.keyboard_arrow_left,
+                      size: 24.0,
+                      color: Colors.grey,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        widget.pageNumberText,
+                        style: const TextStyle(
+                          fontSize: 18.0,
+                          color: AppColor.iconColor,
+                        ),
+                      ),
+                    ),
+                    const Icon(
+                      Icons.keyboard_arrow_right,
+                      size: 24.0,
+                      color: Colors.grey,
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
           if (selectedText.isNotEmpty)
             Padding(
