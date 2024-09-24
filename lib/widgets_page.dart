@@ -6,6 +6,7 @@ import 'package:test_widgets/widgets/content_widget.dart';
 import 'package:test_widgets/widgets/icon_button_widget.dart';
 import 'package:test_widgets/widgets/notes_widget.dart';
 import 'package:test_widgets/widgets/pages_widget.dart';
+import 'package:test_widgets/widgets/share_text_widget.dart';
 
 class WidgetsPage extends StatelessWidget {
   const WidgetsPage({super.key});
@@ -18,6 +19,16 @@ class WidgetsPage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              ShareTextWidget(
+                bookTitle: 'Three Comrades',
+                authorName: 'Erich Maria Remarque',
+                volumeNumberText: 'SOM NS v293',
+                pageNumberText: 'Page 234',
+                detailsText: 'Details',
+                bookText:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel.',
+                iconBookmark: Icons.bookmark_border_outlined,
+              ),
               NotesWidget(
                 title: "NOTES OF MEETINGS",
                 locationText: "Australia & New Zealand",

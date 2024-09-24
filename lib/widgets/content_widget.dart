@@ -100,7 +100,7 @@ class ContentWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    if (idVolumeText != null)
+                    if (key == ContentWidget.notes)
                       Text(
                         idVolumeText!,
                         style: const TextStyle(
