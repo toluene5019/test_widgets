@@ -9,6 +9,10 @@ class ShareTextWidget extends StatefulWidget {
   final String pageNumberText;
   final String detailsText;
   final String bookText;
+  final String referenceChapters;
+  final String wordInfo;
+  final String locationInfo;
+  final String dateInfo;
   final IconData iconBookmark;
 
   const ShareTextWidget({
@@ -20,6 +24,10 @@ class ShareTextWidget extends StatefulWidget {
     required this.bookText,
     required this.iconBookmark,
     required this.detailsText,
+    required this.referenceChapters,
+    required this.wordInfo,
+    required this.locationInfo,
+    required this.dateInfo,
   });
 
   @override
@@ -28,6 +36,7 @@ class ShareTextWidget extends StatefulWidget {
 
 class _ShareTextWidgetState extends State<ShareTextWidget> {
   String selectedText = "";
+  bool isVisibleDetails = false;
 
   @override
   Widget build(BuildContext context) {
@@ -132,10 +141,17 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                             color: AppColor.iconColor,
                           ),
                         ),
-                        const Icon(
-                          Icons.keyboard_arrow_down,
-                          size: 24.0,
-                          color: AppColor.iconColor,
+                        IconButton(
+                          icon: Icon(
+                            isVisibleDetails
+                                ? Icons.keyboard_arrow_up
+                                : Icons.keyboard_arrow_down,
+                            size: 24.0,
+                            color: AppColor.iconColor,
+                          ),
+                          onPressed: () => setState(
+                            () => isVisibleDetails = !isVisibleDetails,
+                          ),
                         ),
                       ],
                     ),
@@ -145,6 +161,123 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
             ],
           ),
           const Divider(),
+          if (isVisibleDetails)
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.menu_book,
+                            size: 18.0,
+                            color: AppColor.iconColor,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(
+                              widget.referenceChapters,
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: AppColor.darkGrey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.people,
+                            size: 18.0,
+                            color: AppColor.iconColor,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(
+                              widget.wordInfo,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                      child: VerticalDivider(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on_outlined,
+                            size: 18.0,
+                            color: AppColor.iconColor,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(
+                              widget.locationInfo,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                      child: VerticalDivider(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month,
+                            size: 18.0,
+                            color: AppColor.iconColor,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(
+                              widget.dateInfo,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           const SizedBox(
             height: 10,
           ),

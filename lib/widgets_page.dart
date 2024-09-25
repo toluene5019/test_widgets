@@ -28,6 +28,10 @@ class WidgetsPage extends StatelessWidget {
                 bookText:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus sagittis mi, non dignissim erat imperdiet vel.',
                 iconBookmark: Icons.bookmark_border_outlined,
+                referenceChapters: '[John 5:23], [Luke 5:23], [Mark 5:23]',
+                wordInfo: 'Word',
+                locationInfo: 'London, UK',
+                dateInfo: 'Tuesday, Mar 12, 1963',
               ),
               // NotesWidget(
               //   title: "NOTES OF MEETINGS",
