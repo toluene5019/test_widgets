@@ -6,6 +6,7 @@ import 'package:test_widgets/widgets/content_widget.dart';
 import 'package:test_widgets/widgets/icon_button_widget.dart';
 import 'package:test_widgets/widgets/notes_widget.dart';
 import 'package:test_widgets/widgets/pages_widget.dart';
+import 'package:test_widgets/widgets/search_widget.dart';
 import 'package:test_widgets/widgets/share_text_widget.dart';
 
 class WidgetsPage extends StatelessWidget {
@@ -19,6 +20,11 @@ class WidgetsPage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              SearchWidget(
+                onSubmit: null,
+                onFilterClick: null,
+              ),
+
               ShareTextWidget(
                 bookTitle: 'Three Comrades',
                 authorName: 'Erich Maria Remarque',
