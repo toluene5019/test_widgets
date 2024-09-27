@@ -32,7 +32,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                   padding: const EdgeInsets.symmetric(horizontal: 22.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(8.0),
                     boxShadow: [
                       BoxShadow(
@@ -58,16 +57,22 @@ class _SearchWidgetState extends State<SearchWidget> {
                             fillColor: Colors.white,
                             hintText: 'Enter keyword',
                             hintStyle: TextStyle(color: Colors.grey),
-                            contentPadding: EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 8.0),
+                            contentPadding:
+                                EdgeInsets.only(bottom: 8.0, top: 8.0),
                           ),
                           onFieldSubmitted: (value) {},
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                        child: VerticalDivider(
+                          color: Colors.grey[300],
                         ),
                       ),
                       SvgPicture.asset(
                         "assets/icons/ic_search.svg",
                         colorFilter: const ColorFilter.mode(
-                            Colors.black, BlendMode.srcIn),
+                            Colors.grey, BlendMode.srcIn),
                         width: 18,
                         height: 18,
                       ),
@@ -78,7 +83,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               const SizedBox(width: 10),
               InkWell(
                 child: Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: Colors.blueGrey[900],
                     borderRadius: BorderRadius.circular(4.0),
@@ -87,8 +92,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                     "assets/icons/filter-funnel-01.svg",
                     colorFilter:
                         const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                    width: 30,
-                    height: 30,
+                    width: 22,
+                    height: 22,
                   ),
                 ),
                 onTap: () {

@@ -4,8 +4,6 @@ import 'package:test_widgets/widgets/card_widget.dart';
 import 'package:test_widgets/colors.dart';
 import 'package:test_widgets/widgets/content_widget.dart';
 import 'package:test_widgets/widgets/icon_button_widget.dart';
-import 'package:test_widgets/widgets/notes_widget.dart';
-import 'package:test_widgets/widgets/pages_widget.dart';
 import 'package:test_widgets/widgets/search_widget.dart';
 import 'package:test_widgets/widgets/share_text_widget.dart';
 
@@ -24,7 +22,6 @@ class WidgetsPage extends StatelessWidget {
                 onSubmit: null,
                 onFilterClick: null,
               ),
-
               ShareTextWidget(
                 bookTitle: 'Three Comrades',
                 authorName: 'Erich Maria Remarque',
@@ -39,22 +36,6 @@ class WidgetsPage extends StatelessWidget {
                 locationInfo: 'London, UK',
                 dateInfo: 'Tuesday, Mar 12, 1963',
               ),
-              // NotesWidget(
-              //   title: "NOTES OF MEETINGS",
-              //   locationText: "Australia & New Zealand",
-              //   idText: 'NS 131',
-              //   yearsText: '1994-1995',
-              //   icon: Icons.location_on_outlined,
-              //   notesBackgroundColor: AppColor.backgroundColor,
-              //   notesBottomColor: AppColor.bottomColor,
-              // ),
-              // PagesWidget(
-              //   pagesTitle: "Reading at Christchurch",
-              //   pagesDateText: 'Friday, July 3, 1987',
-              //   pageNumberText: 'Page 2',
-              //   pageBackgroundColor: AppColor.backgroundColor,
-              //   pageBottomColor: AppColor.bottomColor,
-              // ),
               ContentWidget.notes(
                 title: "NOTES OF MEETINGS",
                 locationOrDateText: "Australia & New Zealand",
