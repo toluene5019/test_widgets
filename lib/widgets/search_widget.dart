@@ -5,10 +5,13 @@ class SearchWidget extends StatefulWidget {
   final Function? onSubmit;
   final Function? onFilterClick;
 
+  final TextEditingController controller;
+
   const SearchWidget({
     super.key,
     required this.onSubmit,
     required this.onFilterClick,
+    required this.controller,
   });
 
   @override
@@ -32,6 +35,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                   padding: const EdgeInsets.symmetric(horizontal: 22.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
+                    border: Border.all(width: 0.5, color: Colors.grey[300]!),
                     borderRadius: BorderRadius.circular(8.0),
                     boxShadow: [
                       BoxShadow(
@@ -46,6 +50,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                       Expanded(
                         child: TextFormField(
                           textInputAction: TextInputAction.search,
+                          controller: TextEditingController(),
                           style: const TextStyle(
                               fontSize: 18.0, color: Colors.black),
                           decoration: const InputDecoration(

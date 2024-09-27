@@ -282,67 +282,77 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
             ),
             child: Column(
               children: [
-                SelectableText(widget.bookText,
-                    style: const TextStyle(fontSize: 16.0, color: Colors.black),
-                    onSelectionChanged: (selection, cause) {
-                  setState(() {
-                    selectedText = selection.textInside(widget.bookText);
-                  });
-                }, contextMenuBuilder: (BuildContext context,
-                        EditableTextState editableTextState) {
-                  return AdaptiveTextSelectionToolbar(
-                    anchors: editableTextState.contextMenuAnchors,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Clipboard.setData(ClipboardData(text: selectedText));
-                          // future function :  addToBookmark(selectedText);
-                          Navigator.pop(context);
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.bookmark_add_outlined,
-                                  size: 20.0, color: Colors.black),
-                              Text(
-                                'Bookmark',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
+                Theme(
+                  data: ThemeData(
+                      textSelectionTheme: const TextSelectionThemeData(
+                    cursorColor: Colors.black,
+                    selectionColor: Colors.yellow,
+                    selectionHandleColor: Colors.blue,
+                  )),
+                  child: SelectableText(widget.bookText,
+                      style:
+                          const TextStyle(fontSize: 16.0, color: Colors.black),
+                      onSelectionChanged: (selection, cause) {
+                    setState(() {
+                      selectedText = selection.textInside(widget.bookText);
+                    });
+                  }, contextMenuBuilder: (BuildContext context,
+                          EditableTextState editableTextState) {
+                    return AdaptiveTextSelectionToolbar(
+                      anchors: editableTextState.contextMenuAnchors,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Clipboard.setData(
+                                ClipboardData(text: selectedText));
+                            // future function :  addToBookmark(selectedText);
+                            Navigator.pop(context);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.bookmark_add_outlined,
+                                    size: 20.0, color: Colors.black),
+                                Text(
+                                  'Bookmark',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Share.share(selectedText);
-                          Navigator.pop(context);
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.share,
-                                  size: 20.0, color: Colors.black),
-                              Text(
-                                'Share',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
-                                ),
-                              )
-                            ],
+                        TextButton(
+                          onPressed: () {
+                            Share.share(selectedText);
+                            Navigator.pop(context);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.share,
+                                    size: 20.0, color: Colors.black),
+                                Text(
+                                  'Share',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                }),
+                      ],
+                    );
+                  }),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Row(

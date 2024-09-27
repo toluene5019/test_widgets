@@ -12,7 +12,9 @@ class WidgetsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final TextEditingController searchController = TextEditingController();
+
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
@@ -21,8 +23,9 @@ class WidgetsPage extends StatelessWidget {
               SearchWidget(
                 onSubmit: null,
                 onFilterClick: null,
+                controller: searchController,
               ),
-              ShareTextWidget(
+              const ShareTextWidget(
                 bookTitle: 'Three Comrades',
                 authorName: 'Erich Maria Remarque',
                 volumeNumberText: 'SOM NS v293',
@@ -36,7 +39,7 @@ class WidgetsPage extends StatelessWidget {
                 locationInfo: 'London, UK',
                 dateInfo: 'Tuesday, Mar 12, 1963',
               ),
-              ContentWidget.notes(
+              const ContentWidget.notes(
                 title: "NOTES OF MEETINGS",
                 locationOrDateText: "Australia & New Zealand",
                 idVolumeText: 'NS 131',
@@ -45,14 +48,14 @@ class WidgetsPage extends StatelessWidget {
                 backgroundColor: AppColor.backgroundColor,
                 bottomColor: AppColor.bottomColor,
               ),
-              ContentWidget.pages(
+              const ContentWidget.pages(
                 title: "Reading at Christchurch",
                 locationOrDateText: 'Friday, July 3, 1987',
                 yearsOrPageText: 'Page 2',
                 backgroundColor: AppColor.backgroundColor,
                 bottomColor: AppColor.bottomColor,
               ),
-              Row(
+              const Row(
                 children: [
                   Expanded(
                     flex: 1,
@@ -76,8 +79,8 @@ class WidgetsPage extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButtonWidget(icon: Icons.search),
-              BookInfoCard(
+              const IconButtonWidget(icon: Icons.search),
+              const BookInfoCard(
                 authorName: "George Orwell",
                 bookTitle: "Nineteen Eighty-Four",
                 bookDescription:
