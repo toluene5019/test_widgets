@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:test_widgets/colors.dart';
+import 'package:flutter/services.dart';
 
 class ShareTextWidget extends StatefulWidget {
   final String bookTitle;
@@ -49,6 +50,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
       ),
       child: Column(
         children: [
+          // Header section (title, author, bookmark, etc.)
           Row(
             children: [
               Expanded(
@@ -92,7 +94,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
               )
             ],
           ),
-          const SizedBox(height: 4),
+
           Row(
             children: [
               Expanded(
@@ -160,6 +162,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
               ),
             ],
           ),
+
           const Divider(),
           if (isVisibleDetails)
             Column(
@@ -190,9 +193,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 Row(
                   children: [
                     Expanded(
@@ -219,9 +220,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                     ),
                     const SizedBox(
                       height: 20,
-                      child: VerticalDivider(
-                        color: Colors.grey,
-                      ),
+                      child: VerticalDivider(color: Colors.grey),
                     ),
                     Expanded(
                       flex: 3,
@@ -237,9 +236,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                             child: Text(
                               widget.locationInfo,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 14.0,
-                              ),
+                              style: const TextStyle(fontSize: 14.0),
                             ),
                           ),
                         ],
@@ -247,9 +244,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                     ),
                     const SizedBox(
                       height: 20,
-                      child: VerticalDivider(
-                        color: Colors.grey,
-                      ),
+                      child: VerticalDivider(color: Colors.grey),
                     ),
                     Expanded(
                       flex: 5,
@@ -266,9 +261,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                               widget.dateInfo,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
-                              style: const TextStyle(
-                                fontSize: 14.0,
-                              ),
+                              style: const TextStyle(fontSize: 14.0),
                             ),
                           ),
                         ],
@@ -278,70 +271,101 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                 ),
               ],
             ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
+
+          // custom context menu
           Container(
-            padding: const EdgeInsets.symmetric(
-              vertical: 16,
-              horizontal: 8,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
               children: [
-                SelectableText(
-                  widget.bookText,
-                  style: const TextStyle(
-                    fontSize: 16.0,
-                    color: Colors.black,
-                  ),
-                  onSelectionChanged: (selection, cause) {
-                    setState(() {
-                      selectedText = selection.textInside(widget.bookText);
-                    });
-                  },
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.keyboard_arrow_left,
-                      size: 24.0,
-                      color: Colors.grey,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        widget.pageNumberText,
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                          color: AppColor.iconColor,
+                SelectableText(widget.bookText,
+                    style: const TextStyle(fontSize: 16.0, color: Colors.black),
+                    onSelectionChanged: (selection, cause) {
+                  setState(() {
+                    selectedText = selection.textInside(widget.bookText);
+                  });
+                }, contextMenuBuilder: (BuildContext context,
+                        EditableTextState editableTextState) {
+                  return AdaptiveTextSelectionToolbar(
+                    anchors: editableTextState.contextMenuAnchors,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Clipboard.setData(ClipboardData(text: selectedText));
+                          // future function :  addToBookmark(selectedText);
+                          Navigator.pop(context);
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.bookmark_add_outlined,
+                                  size: 20.0, color: Colors.black),
+                              Text(
+                                'Bookmark',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    const Icon(
-                      Icons.keyboard_arrow_right,
-                      size: 24.0,
-                      color: Colors.grey,
-                    ),
-                  ],
+                      TextButton(
+                        onPressed: () {
+                          Share.share(selectedText);
+                          Navigator.pop(context);
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.share,
+                                  size: 20.0, color: Colors.black),
+                              Text(
+                                'Share',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.keyboard_arrow_left,
+                          size: 24.0, color: Colors.grey),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          widget.pageNumberText,
+                          style: const TextStyle(
+                              fontSize: 18.0, color: AppColor.iconColor),
+                        ),
+                      ),
+                      const Icon(Icons.keyboard_arrow_right,
+                          size: 24.0, color: Colors.grey),
+                    ],
+                  ),
                 )
               ],
             ),
           ),
-          if (selectedText.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  Share.share(selectedText);
-                },
-                child: const Text('Share Text'),
-              ),
-            ),
         ],
       ),
     );
