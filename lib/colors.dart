@@ -12,4 +12,8 @@ class AppColor {
   static const Color cardBottomColor = Color.fromARGB(255, 38, 71, 46);
 
   static const Color darkGrey = Color(0xFF646464);
+
+  static const Color blue = Color(0xFF427AC7);
+
+  static const Color white = Color.fromARGB(255, 255, 255, 255);
 }

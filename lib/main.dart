@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_widgets/widgets/indago_bottom_navigation.dart';
 import 'package:test_widgets/widgets_page.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: const WidgetsPage(),
+      home: const IndagoBottomNavigation(),
     );
   }
 }
