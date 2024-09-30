@@ -105,7 +105,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                     Text(
                       widget.volumeNumberText,
                       style: const TextStyle(
-                          fontSize: 18.0,
+                          fontSize: 14.0,
                           color: Colors.black,
                           fontWeight: FontWeight.w600),
                     ),
@@ -120,7 +120,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                     Text(
                       widget.pageNumberText,
                       style: const TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 14.0,
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
@@ -129,7 +129,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -139,7 +139,7 @@ class _ShareTextWidgetState extends State<ShareTextWidget> {
                         Text(
                           widget.detailsText,
                           style: const TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 14.0,
                             color: AppColor.iconColor,
                           ),
                         ),

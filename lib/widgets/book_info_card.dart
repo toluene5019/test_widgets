@@ -111,7 +111,7 @@ class BookInfoCard extends StatelessWidget {
                 child: Text(
                   pageNumber,
                   style: const TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 11.0,
                   ),
                 ),
               ),
@@ -148,7 +148,7 @@ class BookInfoCard extends StatelessWidget {
                       child: Text(
                         wordInfo,
                         style: const TextStyle(
-                          fontSize: 14.0,
+                          fontSize: 10.0,
                         ),
                       ),
                     ),
@@ -175,7 +175,7 @@ class BookInfoCard extends StatelessWidget {
                       child: Text(
                         bookInfoAddress,
                         style: const TextStyle(
-                          fontSize: 14.0,
+                          fontSize: 10.0,
                         ),
                       ),
                     ),
@@ -204,7 +204,7 @@ class BookInfoCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: const TextStyle(
-                          fontSize: 14.0,
+                          fontSize: 10.0,
                         ),
                       ),
                     ),

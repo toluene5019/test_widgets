@@ -4,14 +4,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SearchWidget extends StatefulWidget {
   final Function? onSubmit;
   final Function? onFilterClick;
-
   final TextEditingController controller;
+  final Widget? leftIcon;
+  final Widget? rightIcon;
 
   const SearchWidget({
     super.key,
     required this.onSubmit,
     required this.onFilterClick,
     required this.controller,
+    this.leftIcon,
+    this.rightIcon,
   });
 
   @override
@@ -47,6 +50,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ),
                   child: Row(
                     children: [
+                      if (widget.leftIcon != null) widget.leftIcon!,
                       Expanded(
                         child: TextFormField(
                           textInputAction: TextInputAction.search,
@@ -74,13 +78,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           color: Colors.grey[300],
                         ),
                       ),
-                      SvgPicture.asset(
-                        "assets/icons/ic_search.svg",
-                        colorFilter: const ColorFilter.mode(
-                            Colors.grey, BlendMode.srcIn),
-                        width: 18,
-                        height: 18,
-                      ),
+                      if (widget.rightIcon != null) widget.rightIcon!,
                     ],
                   ),
                 ),
