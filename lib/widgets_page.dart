@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:test_widgets/widgets/book_info_card.dart';
 import 'package:test_widgets/widgets/card_widget.dart';
 import 'package:test_widgets/colors.dart';
@@ -25,32 +24,13 @@ class WidgetsPage extends StatelessWidget {
                 onSubmit: null,
                 onFilterClick: null,
                 controller: searchController,
-                rightIcon: SvgPicture.asset(
-                  "assets/icons/ic_search.svg",
-                  colorFilter:
-                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-                  width: 18,
-                  height: 18,
-                ),
+                showFilterButton: true,
               ),
               SearchWidget(
                 onSubmit: null,
                 onFilterClick: null,
                 controller: searchController,
-                leftIcon: SvgPicture.asset(
-                  "assets/icons/ic_search.svg",
-                  colorFilter:
-                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-                  width: 18,
-                  height: 18,
-                ),
-                rightIcon: SvgPicture.asset(
-                  "assets/icons/filter-funnel-01.svg",
-                  colorFilter:
-                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-                  width: 18,
-                  height: 18,
-                ),
+                showFilterButton: false,
               ),
               const ShareTextWidget(
                 bookTitle: 'Three Comrades',

@@ -5,23 +5,21 @@ class SearchWidget extends StatefulWidget {
   final Function? onSubmit;
   final Function? onFilterClick;
   final TextEditingController controller;
-  final Widget? leftIcon;
-  final Widget? rightIcon;
+  final bool showFilterButton;
 
   const SearchWidget({
     super.key,
     required this.onSubmit,
     required this.onFilterClick,
     required this.controller,
-    this.leftIcon,
-    this.rightIcon,
+    required this.showFilterButton,
   });
 
   @override
   State<SearchWidget> createState() => _SearchWidgetState();
 }
 
-bool isFilterActive = false;
+bool isFilterActive = true;
 
 class _SearchWidgetState extends State<SearchWidget> {
   @override
@@ -35,7 +33,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 14.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(width: 0.5, color: Colors.grey[300]!),
@@ -50,7 +48,17 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ),
                   child: Row(
                     children: [
-                      if (widget.leftIcon != null) widget.leftIcon!,
+                      if (!widget.showFilterButton)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 5),
+                          child: SvgPicture.asset(
+                            "assets/icons/ic_search.svg",
+                            colorFilter: const ColorFilter.mode(
+                                Colors.grey, BlendMode.srcIn),
+                            width: 18,
+                            height: 18,
+                          ),
+                        ),
                       Expanded(
                         child: TextFormField(
                           textInputAction: TextInputAction.search,
@@ -78,33 +86,50 @@ class _SearchWidgetState extends State<SearchWidget> {
                           color: Colors.grey[300],
                         ),
                       ),
-                      if (widget.rightIcon != null) widget.rightIcon!,
+                      if (widget.showFilterButton)
+                        SvgPicture.asset(
+                          "assets/icons/ic_search.svg",
+                          colorFilter: const ColorFilter.mode(
+                              Colors.grey, BlendMode.srcIn),
+                          width: 18,
+                          height: 18,
+                        )
+                      else
+                        SvgPicture.asset(
+                          "assets/icons/filter-funnel-01.svg",
+                          colorFilter: const ColorFilter.mode(
+                              Colors.grey, BlendMode.srcIn),
+                          width: 22,
+                          height: 22,
+                        ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
-              InkWell(
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.blueGrey[900],
-                    borderRadius: BorderRadius.circular(4.0),
+              if (widget.showFilterButton && isFilterActive)
+                const SizedBox(width: 10),
+              if (widget.showFilterButton && isFilterActive)
+                InkWell(
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey[900],
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                    child: SvgPicture.asset(
+                      "assets/icons/filter-funnel-01.svg",
+                      colorFilter:
+                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      width: 22,
+                      height: 22,
+                    ),
                   ),
-                  child: SvgPicture.asset(
-                    "assets/icons/filter-funnel-01.svg",
-                    colorFilter:
-                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                    width: 22,
-                    height: 22,
-                  ),
+                  onTap: () {
+                    setState(() {
+                      isFilterActive = !isFilterActive;
+                    });
+                  },
                 ),
-                onTap: () {
-                  setState(() {
-                    isFilterActive = !isFilterActive;
-                  });
-                },
-              ),
             ],
           )
         ],
