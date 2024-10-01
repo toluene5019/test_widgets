@@ -10,12 +10,6 @@ class BookInfoCard extends StatelessWidget {
   final String wordInfo;
   final String bookInfoAddress;
   final String bookInfoDate;
-  final Color cardBackgroundColor;
-  final Color cardBottomColor;
-  final IconData iconTitle;
-  final IconData iconWord;
-  final IconData iconAddress;
-  final IconData iconDate;
 
   const BookInfoCard({
     super.key,
@@ -27,24 +21,18 @@ class BookInfoCard extends StatelessWidget {
     required this.wordInfo,
     required this.bookInfoAddress,
     required this.bookInfoDate,
-    required this.cardBackgroundColor,
-    required this.cardBottomColor,
-    required this.iconTitle,
-    required this.iconWord,
-    required this.iconAddress,
-    required this.iconDate,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.only(top: 20, right: 14, bottom: 20, left: 14),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: cardBackgroundColor,
-        border: Border(
+        color: AppColor.blueColor.withOpacity(0.2),
+        border: const Border(
           bottom: BorderSide(
-            color: cardBottomColor,
+            color: AppColor.blueColor,
             width: 20,
           ),
         ),
@@ -64,7 +52,7 @@ class BookInfoCard extends StatelessWidget {
                       authorName,
                       style: const TextStyle(
                         fontSize: 22.0,
-                        color: Colors.black,
+                        color: AppColor.cardBottomColor,
                       ),
                     ),
                     Text(
@@ -81,9 +69,9 @@ class BookInfoCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     IconButton(
-                      icon: Icon(
-                        iconTitle,
-                        size: 30.0,
+                      icon: const Icon(
+                        Icons.bookmark_border_outlined,
+                        size: 24.0,
                         color: AppColor.iconColor,
                       ),
                       onPressed: () {},
@@ -99,7 +87,7 @@ class BookInfoCard extends StatelessWidget {
           Text(
             bookDescription,
             style: const TextStyle(
-              fontSize: 16.0,
+              fontSize: 14.0,
               color: Colors.black,
             ),
           ),
@@ -126,7 +114,7 @@ class BookInfoCard extends StatelessWidget {
                 child: Text(
                   volumeNumber,
                   style: const TextStyle(
-                      fontSize: 16.0, fontWeight: FontWeight.w300),
+                      fontSize: 12.0, fontWeight: FontWeight.w300),
                 ),
               ),
             ],
@@ -138,8 +126,8 @@ class BookInfoCard extends StatelessWidget {
                 flex: 1,
                 child: Row(
                   children: [
-                    Icon(
-                      iconWord,
+                    const Icon(
+                      Icons.people,
                       size: 18.0,
                       color: AppColor.iconColor,
                     ),
@@ -165,8 +153,8 @@ class BookInfoCard extends StatelessWidget {
                 flex: 2,
                 child: Row(
                   children: [
-                    Icon(
-                      iconAddress,
+                    const Icon(
+                      Icons.location_on_outlined,
                       size: 18.0,
                       color: AppColor.iconColor,
                     ),
@@ -192,8 +180,8 @@ class BookInfoCard extends StatelessWidget {
                 flex: 3,
                 child: Row(
                   children: [
-                    Icon(
-                      iconDate,
+                    const Icon(
+                      Icons.calendar_month,
                       size: 18.0,
                       color: AppColor.iconColor,
                     ),

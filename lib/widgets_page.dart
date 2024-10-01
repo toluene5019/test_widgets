@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_widgets/pages/book_info_page.dart';
 import 'package:test_widgets/widgets/book_info_card.dart';
 import 'package:test_widgets/widgets/card_widget.dart';
 import 'package:test_widgets/colors.dart';
@@ -20,6 +21,7 @@ class WidgetsPage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              BookInfoPage(),
               SearchWidget(
                 onSubmit: null,
                 onFilterClick: null,
@@ -97,12 +99,6 @@ class WidgetsPage extends StatelessWidget {
                 wordInfo: "Word",
                 bookInfoAddress: "London, UK",
                 bookInfoDate: "Friday, Jan 18, 1990",
-                cardBackgroundColor: AppColor.backgroundColor,
-                cardBottomColor: AppColor.bottomColor,
-                iconTitle: Icons.bookmark_border_outlined,
-                iconWord: Icons.people,
-                iconAddress: Icons.location_on_outlined,
-                iconDate: Icons.calendar_month,
               )
             ],
           ),

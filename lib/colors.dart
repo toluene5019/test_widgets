@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static const Color backgroundColor = Color(0xFFD9E4F4);
+  static const Color backgroundColor = Color.fromRGBO(217, 228, 244, 1);
 
   static const Color bottomColor = Color(0xFF427AC7);
+
+  static const Color blueColor = Color(0xFF427AC7);
 
   static const Color iconColor = Color(0xFF40B1E4);
 
