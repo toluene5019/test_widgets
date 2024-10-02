@@ -21,7 +21,6 @@ class WidgetsPage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              BookInfoPage(),
               SearchWidget(
                 onSubmit: null,
                 onFilterClick: null,
