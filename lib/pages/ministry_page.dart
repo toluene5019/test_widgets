@@ -51,8 +51,8 @@ class MinistryPage extends StatelessWidget {
         title: const Text('Ministry Page'),
       ),
       body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: MediaQuery.of(context).size.width < 320 ? 1 : 2,
           childAspectRatio: 2 / 1.5,
         ),
         itemCount: ministries.length,
