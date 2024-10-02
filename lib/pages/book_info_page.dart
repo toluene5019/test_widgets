@@ -14,6 +14,7 @@ class BookInfoPage extends StatelessWidget {
       "wordInfo": "Word",
       "bookInfoAddress": "London, UK",
       "bookInfoDate": "Friday, Jan 18, 1990",
+      "bookInfoColor": AppColor.blueColor,
     },
     {
       "authorName": "George Orwell",
@@ -25,6 +26,7 @@ class BookInfoPage extends StatelessWidget {
       "wordInfo": "Word",
       "bookInfoAddress": "London, UK",
       "bookInfoDate": "Friday, Jan 18, 1990",
+      "bookInfoColor": AppColor.tealColor,
     },
     {
       "authorName": "George Orwell",
@@ -36,6 +38,7 @@ class BookInfoPage extends StatelessWidget {
       "wordInfo": "Word",
       "bookInfoAddress": "London, UK",
       "bookInfoDate": "Friday, Jan 18, 1990",
+      "bookInfoColor": AppColor.redColor,
     },
   ];
 
@@ -60,6 +63,7 @@ class BookInfoPage extends StatelessWidget {
             wordInfo: book["wordInfo"],
             bookInfoAddress: book["bookInfoAddress"],
             bookInfoDate: book["bookInfoDate"],
+            bookInfoColor: book["bookInfoColor"],
           );
         },
       ),

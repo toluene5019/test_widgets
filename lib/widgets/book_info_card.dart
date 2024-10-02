@@ -10,6 +10,7 @@ class BookInfoCard extends StatelessWidget {
   final String wordInfo;
   final String bookInfoAddress;
   final String bookInfoDate;
+  final Color bookInfoColor;
 
   const BookInfoCard({
     super.key,
@@ -21,6 +22,7 @@ class BookInfoCard extends StatelessWidget {
     required this.wordInfo,
     required this.bookInfoAddress,
     required this.bookInfoDate,
+    required this.bookInfoColor,
   });
 
   @override
@@ -30,9 +32,9 @@ class BookInfoCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: AppColor.blueColor.withOpacity(0.2),
-        border: const Border(
+        border: Border(
           bottom: BorderSide(
-            color: AppColor.blueColor,
+            color: bookInfoColor,
             width: 20,
           ),
         ),

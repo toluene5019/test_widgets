@@ -96,6 +96,7 @@ class WidgetsPage extends StatelessWidget {
                 wordInfo: "Word",
                 bookInfoAddress: "London, UK",
                 bookInfoDate: "Friday, Jan 18, 1990",
+                bookInfoColor: AppColor.blueColor,
               )
             ],
           ),
