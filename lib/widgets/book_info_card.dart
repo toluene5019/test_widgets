@@ -52,7 +52,7 @@ class BookInfoCard extends StatelessWidget {
                       authorName,
                       style: const TextStyle(
                         fontSize: 22.0,
-                        color: AppColor.cardBottomColor,
+                        color: AppColor.greenColor,
                       ),
                     ),
                     Text(

@@ -4,28 +4,25 @@ class CardWidget extends StatelessWidget {
   final String cardTitle;
   final String cardDateText;
   final String volumeNumberText;
-  final Color cardBackgroundColor;
-  final Color cardBottomColor;
+  final Color cardColor;
 
   const CardWidget({
     super.key,
     required this.cardTitle,
     required this.cardDateText,
     required this.volumeNumberText,
-    required this.cardBackgroundColor,
-    required this.cardBottomColor,
+    required this.cardColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.only(top: 30, right: 14, bottom: 20, left: 14),
       decoration: BoxDecoration(
-        color: cardBackgroundColor,
+        color: cardColor.withOpacity(0.2),
         border: Border(
           bottom: BorderSide(
-            color: cardBottomColor,
+            color: cardColor,
             width: 20,
           ),
         ),
@@ -33,6 +30,7 @@ class CardWidget extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             cardTitle,
@@ -40,7 +38,7 @@ class CardWidget extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 22.0,
+              fontSize: 20.0,
               color: Colors.black,
             ),
           ),
@@ -50,7 +48,7 @@ class CardWidget extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
-              fontSize: 14.0,
+              fontSize: 10.0,
               color: Colors.grey,
             ),
           ),
@@ -61,7 +59,7 @@ class CardWidget extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20.0,
+              fontSize: 14.0,
               color: Colors.black,
             ),
           ),

@@ -11,7 +11,11 @@ class AppColor {
 
   static const Color cardBackgroundColor = Color.fromARGB(255, 179, 223, 190);
 
-  static const Color cardBottomColor = Color.fromARGB(255, 38, 71, 46);
+  static const Color greenColor = Color.fromARGB(255, 38, 71, 46);
+
+  static const Color tealColor = Colors.teal;
+
+  static const Color redColor = Colors.red;
 
   static const Color darkGrey = Color(0xFF646464);
 }

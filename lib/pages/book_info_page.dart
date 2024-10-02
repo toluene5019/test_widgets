@@ -14,8 +14,6 @@ class BookInfoPage extends StatelessWidget {
       "wordInfo": "Word",
       "bookInfoAddress": "London, UK",
       "bookInfoDate": "Friday, Jan 18, 1990",
-      "cardBackgroundColor": AppColor.backgroundColor,
-      "cardBottomColor": AppColor.bottomColor,
     },
     {
       "authorName": "George Orwell",
