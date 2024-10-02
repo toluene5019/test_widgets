@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-// import 'package:indago/constants/app_strings.dart';
-// import 'package:indago/constants/text_styles.dart';
-// import 'package:indago/features/home/settings/presentation/pages/settings_page.dart';
-// import 'package:indago/features/ministry/presentation/pages/ministry_chapters_page.dart';
-// import 'package:indago/features/ministry/presentation/pages/ministry_page.dart';
-// import 'package:indago/old/pages/search_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:test_widgets/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test_widgets/widgets_page.dart';
 
 class IndagoBottomNavigation extends StatefulWidget {
-  const IndagoBottomNavigation({
-    super.key,
-  });
+  const IndagoBottomNavigation({super.key});
 
   @override
   State<IndagoBottomNavigation> createState() => _IndagoBottomNavigationState();
@@ -26,141 +17,141 @@ class _IndagoBottomNavigationState extends State<IndagoBottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
-    return PersistentTabView(
+    return PersistentTabView.custom(
       context,
       controller: _controller,
       screens: buildScreens(),
-      items: navBarItems(),
-      handleAndroidBackButtonPress: true,
-      // Default is true.
-      resizeToAvoidBottomInset: true,
-      // This needs to be true if you want to move up the screen on a non-scrollable screen when keyboard appears. Default is true.
-      stateManagement: true,
-      // Default is true.
-      hideNavigationBarWhenKeyboardAppears: true,
-      popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
-      // padding: const EdgeInsets.only(top: 1),
-      backgroundColor: AppColor.white,
-      isVisible: true,
-      animationSettings: const NavBarAnimationSettings(
-        navBarItemAnimation: ItemAnimationSettings(
-          // Navigation Bar's items animation properties.
-          duration: Duration(milliseconds: 400),
-          curve: Curves.ease,
-        ),
-        screenTransitionAnimation: ScreenTransitionAnimationSettings(
-          // Screen transition animation on change of selected tab.
-          animateTabTransition: true,
-          duration: Duration(milliseconds: 300),
-          screenTransitionAnimationType: ScreenTransitionAnimationType.fadeIn,
-        ),
+      itemCount: 5,
+      customWidget: CustomNavBarWidget(
+        items: navBarItems(),
+        selectedIndex: _controller.index,
+        onItemSelected: (index) {
+          setState(() {
+            _controller.index = index;
+          });
+        },
       ),
-      confineToSafeArea: true,
-      navBarHeight: kBottomNavigationBarHeight,
-      navBarStyle: NavBarStyle.style15,
-      // Choose the nav bar style with this property
     );
   }
 }
 
-List<Widget> buildScreens() {
+List<CustomNavBarScreen> buildScreens() {
   return [
-    const WidgetsPage(),
-    const WidgetsPage(),
-    const WidgetsPage(),
-    const WidgetsPage(),
-    const WidgetsPage(),
-
-    // const SearchPage(),
-    // const MinistryChaptersPage(),
-    // const SearchPage(),
-    // const SettingsPage(),
+    const CustomNavBarScreen(screen: WidgetsPage()),
+    const CustomNavBarScreen(screen: WidgetsPage()),
+    const CustomNavBarScreen(screen: WidgetsPage()),
+    const CustomNavBarScreen(screen: WidgetsPage()),
+    const CustomNavBarScreen(screen: WidgetsPage()),
   ];
 }
 
-List<PersistentBottomNavBarItem> navBarItems() {
+List<Widget> navBarItems() {
   return [
-    PersistentBottomNavBarItem(
+    CustomNavBarItem(
       icon: SvgPicture.asset(
         "assets/icons/ministry-1.svg",
-        width: 30,
-        height: 30,
-        colorFilter: const ColorFilter.mode(AppColor.blue, BlendMode.srcIn),
+        width: 14,
+        height: 14,
       ),
-      inactiveIcon: SvgPicture.asset(
-        "assets/icons/ic_bottom_ministry.svg",
-        width: 30,
-        height: 30,
-        colorFilter: const ColorFilter.mode(AppColor.darkGrey, BlendMode.srcIn),
-      ),
-      title: ("Ministry"),
-      activeColorPrimary: AppColor.blue,
-      inactiveColorPrimary: AppColor.darkGrey,
+      title: "Ministry",
     ),
-    PersistentBottomNavBarItem(
+    CustomNavBarItem(
       icon: SvgPicture.asset(
         "assets/icons/ic_bible.svg",
-        colorFilter: const ColorFilter.mode(AppColor.blue, BlendMode.srcIn),
-        width: 30,
-        height: 30,
+        width: 14,
+        height: 14,
       ),
-      inactiveIcon: SvgPicture.asset(
-        "assets/icons/ic_bible.svg",
-        width: 30,
-        height: 30,
-        colorFilter: const ColorFilter.mode(AppColor.darkGrey, BlendMode.srcIn),
-      ),
-      title: ("Title"),
-      activeColorPrimary: AppColor.blue,
-      inactiveColorPrimary: AppColor.darkGrey,
+      title: "Bible",
     ),
-    PersistentBottomNavBarItem(
+    CustomNavBarItem(
       icon: SvgPicture.asset(
         "assets/icons/ic_search.svg",
-        width: 25,
-        height: 25,
-        colorFilter: const ColorFilter.mode(AppColor.blue, BlendMode.srcIn),
+        width: 14,
+        height: 14,
       ),
-      title: ("Search"),
-      textStyle: GoogleFonts.poppins(),
-      activeColorPrimary: AppColor.white,
-      activeColorSecondary: AppColor.blue,
-      inactiveColorPrimary: AppColor.darkGrey,
-      inactiveColorSecondary: AppColor.darkGrey,
+      title: "Search",
     ),
-    PersistentBottomNavBarItem(
+    CustomNavBarItem(
       icon: SvgPicture.asset(
         "assets/icons/ic_bookmarks.svg",
-        colorFilter: const ColorFilter.mode(AppColor.blue, BlendMode.srcIn),
-        width: 30,
-        height: 30,
+        width: 14,
+        height: 14,
       ),
-      inactiveIcon: SvgPicture.asset(
-        "assets/icons/ic_bookmarks.svg",
-        width: 30,
-        height: 30,
-        colorFilter: const ColorFilter.mode(AppColor.darkGrey, BlendMode.srcIn),
-      ),
-      title: ("Bookmarks"),
-      activeColorPrimary: AppColor.blue,
-      inactiveColorPrimary: AppColor.darkGrey,
+      title: "Bookmarks",
     ),
-    PersistentBottomNavBarItem(
+    CustomNavBarItem(
       icon: SvgPicture.asset(
         "assets/icons/ic_settings.svg",
-        width: 30,
-        height: 30,
-        colorFilter: const ColorFilter.mode(AppColor.blue, BlendMode.srcIn),
+        width: 14,
+        height: 14,
       ),
-      inactiveIcon: SvgPicture.asset(
-        "assets/icons/ic_settings.svg",
-        width: 30,
-        height: 30,
-        colorFilter: const ColorFilter.mode(AppColor.darkGrey, BlendMode.srcIn),
-      ),
-      title: ("Settings"),
-      activeColorPrimary: AppColor.blue,
-      inactiveColorPrimary: AppColor.darkGrey,
+      title: "Settings",
     ),
   ];
+}
+
+class CustomNavBarItem extends StatelessWidget {
+  final Widget icon;
+  final String title;
+
+  const CustomNavBarItem({
+    required this.icon,
+    required this.title,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        icon,
+        const SizedBox(height: 0),
+        Text(
+          title,
+          style: GoogleFonts.poppins(
+            fontSize: 12,
+            color: Colors.black,
+            decoration: TextDecoration.none,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomNavBarWidget extends StatelessWidget {
+  final List<Widget> items;
+  final int selectedIndex;
+  final Function(int) onItemSelected;
+
+  const CustomNavBarWidget({
+    required this.items,
+    required this.selectedIndex,
+    required this.onItemSelected,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: items.asMap().entries.map((entry) {
+          int index = entry.key;
+          Widget item = entry.value;
+          return GestureDetector(
+            onTap: () => onItemSelected(index),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+              child: item,
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
 }
