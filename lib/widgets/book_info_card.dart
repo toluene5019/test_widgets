@@ -100,6 +100,8 @@ class BookInfoCard extends StatelessWidget {
                 flex: 1,
                 child: Text(
                   pageNumber,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 11.0,
                   ),
@@ -115,6 +117,8 @@ class BookInfoCard extends StatelessWidget {
                 flex: 3,
                 child: Text(
                   volumeNumber,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                       fontSize: 12.0, fontWeight: FontWeight.w300),
                 ),
@@ -128,21 +132,21 @@ class BookInfoCard extends StatelessWidget {
                 flex: 1,
                 child: Row(
                   children: [
-                    const Icon(
-                      Icons.people,
-                      size: 18.0,
-                      color: AppColor.iconColor,
+                    const Padding(
+                      padding: EdgeInsets.only(right: 4.0),
+                      child: Icon(
+                        Icons.people,
+                        size: 14.0,
+                        color: AppColor.iconColor,
+                      ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Flexible(
-                        child: Text(
-                          wordInfo,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 10.0,
-                          ),
+                    Flexible(
+                      child: Text(
+                        wordInfo,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 10.0,
                         ),
                       ),
                     ),
@@ -159,21 +163,21 @@ class BookInfoCard extends StatelessWidget {
                 flex: 2,
                 child: Row(
                   children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      size: 18.0,
-                      color: AppColor.iconColor,
+                    const Padding(
+                      padding: EdgeInsets.only(right: 4.0),
+                      child: Icon(
+                        Icons.location_on_outlined,
+                        size: 14.0,
+                        color: AppColor.iconColor,
+                      ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Flexible(
-                        child: Text(
-                          bookInfoAddress,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 10.0,
-                          ),
+                    Flexible(
+                      child: Text(
+                        bookInfoAddress,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 10.0,
                         ),
                       ),
                     ),
@@ -190,21 +194,21 @@ class BookInfoCard extends StatelessWidget {
                 flex: 3,
                 child: Row(
                   children: [
-                    const Icon(
-                      Icons.calendar_month,
-                      size: 18.0,
-                      color: AppColor.iconColor,
+                    const Padding(
+                      padding: EdgeInsets.only(right: 4.0),
+                      child: Icon(
+                        Icons.calendar_month,
+                        size: 14.0,
+                        color: AppColor.iconColor,
+                      ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Flexible(
-                        child: Text(
-                          bookInfoDate,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: const TextStyle(
-                            fontSize: 10.0,
-                          ),
+                    Flexible(
+                      child: Text(
+                        bookInfoDate,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: const TextStyle(
+                          fontSize: 10.0,
                         ),
                       ),
                     ),
