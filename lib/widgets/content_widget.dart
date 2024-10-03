@@ -67,23 +67,21 @@ class ContentWidget extends StatelessWidget {
                     Row(
                       children: [
                         if (icon != null)
-                          Row(
-                            children: [
-                              Icon(
-                                icon,
-                                size: 14.0,
-                                color: AppColor.iconColor,
-                              ),
-                              const SizedBox(width: 4),
-                            ],
+                          Icon(
+                            icon,
+                            size: 14.0,
+                            color: AppColor.iconColor,
                           ),
-                        Text(
-                          locationOrDateText,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 12.0,
-                            color: Colors.blueGrey,
+                        const SizedBox(width: 4),
+                        Flexible(
+                          child: Text(
+                            locationOrDateText,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.blueGrey,
+                            ),
                           ),
                         ),
                       ],

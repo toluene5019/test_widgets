@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_widgets/colors.dart';
-import 'package:test_widgets/widgets/book_info_card.dart';
 import 'package:test_widgets/widgets/content_widget.dart';
 
 class NotesPage extends StatelessWidget {

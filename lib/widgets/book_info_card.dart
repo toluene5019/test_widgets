@@ -135,10 +135,14 @@ class BookInfoCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        wordInfo,
-                        style: const TextStyle(
-                          fontSize: 10.0,
+                      child: Flexible(
+                        child: Text(
+                          wordInfo,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 10.0,
+                          ),
                         ),
                       ),
                     ),
@@ -162,10 +166,14 @@ class BookInfoCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        bookInfoAddress,
-                        style: const TextStyle(
-                          fontSize: 10.0,
+                      child: Flexible(
+                        child: Text(
+                          bookInfoAddress,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 10.0,
+                          ),
                         ),
                       ),
                     ),
@@ -189,12 +197,14 @@ class BookInfoCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        bookInfoDate,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: const TextStyle(
-                          fontSize: 10.0,
+                      child: Flexible(
+                        child: Text(
+                          bookInfoDate,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: const TextStyle(
+                            fontSize: 10.0,
+                          ),
                         ),
                       ),
                     ),
