@@ -53,15 +53,13 @@ class WidgetsPage extends StatelessWidget {
                 idVolumeText: 'NS 131',
                 yearsOrPageText: '1994-1995',
                 icon: Icons.location_on_outlined,
-                backgroundColor: AppColor.backgroundColor,
-                bottomColor: AppColor.bottomColor,
+                noteOrChapterColor: AppColor.blueColor,
               ),
-              const ContentWidget.pages(
+              const ContentWidget.chapters(
                 title: "Reading at Christchurch",
                 locationOrDateText: 'Friday, July 3, 1987',
                 yearsOrPageText: 'Page 2',
-                backgroundColor: AppColor.backgroundColor,
-                bottomColor: AppColor.bottomColor,
+                noteOrChapterColor: AppColor.tealColor,
               ),
               const Row(
                 children: [

@@ -7,8 +7,7 @@ class ContentWidget extends StatelessWidget {
   final String? idVolumeText;
   final String yearsOrPageText;
   final IconData? icon;
-  final Color backgroundColor;
-  final Color bottomColor;
+  final Color noteOrChapterColor;
 
   const ContentWidget.notes({
     super.key,
@@ -17,17 +16,15 @@ class ContentWidget extends StatelessWidget {
     required this.idVolumeText,
     required this.yearsOrPageText,
     required this.icon,
-    required this.backgroundColor,
-    required this.bottomColor,
+    required this.noteOrChapterColor,
   });
 
-  const ContentWidget.pages({
+  const ContentWidget.chapters({
     super.key,
     required this.title,
     required this.locationOrDateText,
     required this.yearsOrPageText,
-    required this.backgroundColor,
-    required this.bottomColor,
+    required this.noteOrChapterColor,
     this.idVolumeText,
     this.icon,
   });
@@ -36,12 +33,12 @@ class ContentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.only(top: 20, right: 20, bottom: 12, left: 20),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: noteOrChapterColor.withOpacity(0.2),
         border: Border(
           bottom: BorderSide(
-            color: bottomColor,
+            color: noteOrChapterColor,
             width: 8,
           ),
         ),
@@ -63,11 +60,10 @@ class ContentWidget extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 22.0,
+                        fontSize: 18.0,
                         color: Colors.black,
                       ),
                     ),
-                    const SizedBox(height: 4),
                     Row(
                       children: [
                         if (icon != null)
@@ -86,7 +82,7 @@ class ContentWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                            fontSize: 16.0,
+                            fontSize: 12.0,
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -105,14 +101,14 @@ class ContentWidget extends StatelessWidget {
                       Text(
                         idVolumeText!,
                         style: const TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 14.0,
                           color: Colors.black,
                         ),
                       ),
                     Text(
                       yearsOrPageText,
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 12.0,
                         color: idVolumeText != null
                             ? Colors.blueGrey
                             : Colors.black,
