@@ -31,7 +31,7 @@ class BookInfoCard extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: AppColor.blueColor.withOpacity(0.2),
+        color: bookInfoColor.withOpacity(0.2),
         border: Border(
           bottom: BorderSide(
             color: bookInfoColor,
