@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_widgets/pages/book_info_page.dart';
 import 'package:test_widgets/pages/chapter_page.dart';
+import 'package:test_widgets/pages/filters_page.dart';
 import 'package:test_widgets/pages/ministry_page.dart';
 import 'package:test_widgets/pages/notes_page.dart';
 import 'package:test_widgets/widgets_page.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: BookInfoPage(),
+      home: const FiltersPage(),
     );
   }
 }
