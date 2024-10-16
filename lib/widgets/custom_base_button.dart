@@ -77,40 +77,24 @@ class CustomBaseButton extends StatelessWidget {
     );
 
     final button = Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 0),
-      child: fullWidth
-          ? SizedBox(
-              width: double.infinity,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(16),
-                  backgroundColor: backgroundColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(defaultCornerRadius),
-                    side: BorderSide(
-                      color: borderColor ?? backgroundColor,
-                    ),
-                  ),
-                ),
-                onPressed: onPressed,
-                child: buttonContent,
-              ),
-            )
-          : TextButton(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(16),
-                backgroundColor: backgroundColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(defaultCornerRadius),
-                  side: BorderSide(
-                    color: borderColor ?? backgroundColor,
-                  ),
+        padding: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 0),
+        child: SizedBox(
+          width: fullWidth ? double.infinity : null,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              padding: const EdgeInsets.all(16),
+              backgroundColor: backgroundColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(defaultCornerRadius),
+                side: BorderSide(
+                  color: borderColor ?? backgroundColor,
                 ),
               ),
-              onPressed: onPressed,
-              child: buttonContent,
             ),
-    );
+            onPressed: onPressed,
+            child: buttonContent,
+          ),
+        ));
 
     return button;
   }
