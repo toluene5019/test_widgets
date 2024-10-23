@@ -6,9 +6,12 @@ class DisplayStatusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> statuses = ['Pass', 'Fail', 'N/A'];
+    const String activeStatus = 'Pass';
+
     return Scaffold(
       appBar: AppBar(),
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
           children: [
             Row(
@@ -16,58 +19,21 @@ class DisplayStatusPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: DisplayStatusWidget(
-                    status: Status.pass,
-                    isActive: false,
-                    text: 'Pass',
-                  ),
+                      status: statuses[0], activeStatus: activeStatus),
                 ),
-                SizedBox(width: 2),
+                const SizedBox(width: 5),
                 Expanded(
                   child: DisplayStatusWidget(
-                    status: Status.fail,
-                    isActive: false,
-                    text: 'Fail',
-                  ),
+                      status: statuses[1], activeStatus: activeStatus),
                 ),
-                SizedBox(width: 2),
+                const SizedBox(width: 5),
                 Expanded(
                   child: DisplayStatusWidget(
-                    isActive: false,
-                    status: Status.na,
-                    text: 'N/A',
-                  ),
+                      status: statuses[2], activeStatus: activeStatus),
                 ),
               ],
             ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: DisplayStatusWidget(
-                    status: Status.pass,
-                    isActive: true,
-                    text: 'Pass',
-                  ),
-                ),
-                SizedBox(width: 2),
-                Expanded(
-                  child: DisplayStatusWidget(
-                    status: Status.fail,
-                    isActive: true,
-                    text: 'Fail',
-                  ),
-                ),
-                SizedBox(width: 2),
-                Expanded(
-                  child: DisplayStatusWidget(
-                    isActive: true,
-                    status: Status.na,
-                    text: 'N/A',
-                  ),
-                ),
-              ],
-            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

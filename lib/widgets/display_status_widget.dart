@@ -7,43 +7,33 @@ import 'package:flutter/material.dart';
 /// The widget can be active or inactive.
 /// {@endtemplate}
 
-/// Enum representing possible statuses for the widget.
-///
-/// - `pass`: Represents a passing status.
-/// - `fail`: Represents a failing status.
-/// - `na`: Represents a status of "not applicable".`
-enum Status { pass, fail, na }
-
 class DisplayStatusWidget extends StatelessWidget {
   const DisplayStatusWidget({
     super.key,
     required this.status,
-    required this.text,
-    this.isActive = false,
+    required this.activeStatus,
   });
 
   /// The status to be displayed.
   /// Determines the background color.
-  final Status status;
-
-  /// The text to display inside the widget.
-  final String text;
+  final String status;
 
   /// Whether the widget is active.
+  final String activeStatus;
 
-  final bool isActive;
-
-  /// Gets the background color based on the [status] and [isActive].
+  /// Gets the background color based on the [status] and [activeStatus].
   Color _getBackgroundColor() {
-    if (!isActive) return Colors.blue[50]!;
-    switch (status) {
-      case Status.pass:
-        return Colors.lightGreen[300]!;
-      case Status.fail:
-        return Colors.pink[200]!;
-      case Status.na:
-        return Colors.grey[400]!;
+    if (status == activeStatus) {
+      switch (status) {
+        case 'Pass':
+          return Colors.lightGreen[300]!;
+        case 'Fail':
+          return Colors.pink[200]!;
+        case 'N/A':
+          return Colors.grey[400]!;
+      }
     }
+    return Colors.blue[50]!;
   }
 
   @override
@@ -57,7 +47,7 @@ class DisplayStatusWidget extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          text,
+          status,
           style: const TextStyle(
             color: Colors.black,
             fontSize: 14.0,
