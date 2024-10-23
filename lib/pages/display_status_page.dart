@@ -12,7 +12,7 @@ class DisplayStatusPage extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   child: DisplayStatusWidget(
@@ -21,7 +21,7 @@ class DisplayStatusPage extends StatelessWidget {
                     text: 'Pass',
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 2),
                 Expanded(
                   child: DisplayStatusWidget(
                     status: Status.fail,
@@ -29,7 +29,7 @@ class DisplayStatusPage extends StatelessWidget {
                     text: 'Fail',
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 2),
                 Expanded(
                   child: DisplayStatusWidget(
                     isActive: false,
@@ -50,7 +50,7 @@ class DisplayStatusPage extends StatelessWidget {
                     text: 'Pass',
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 2),
                 Expanded(
                   child: DisplayStatusWidget(
                     status: Status.fail,
@@ -58,7 +58,7 @@ class DisplayStatusPage extends StatelessWidget {
                     text: 'Fail',
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 2),
                 Expanded(
                   child: DisplayStatusWidget(
                     isActive: true,
