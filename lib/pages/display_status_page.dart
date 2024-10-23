@@ -8,49 +8,67 @@ class DisplayStatusPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
-            child: Column(
+      body: const SafeArea(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                DisplayStatusWidget(
-                  status: Status.pass,
-                  isActive: false,
-                  text: 'Pass',
+                Expanded(
+                  child: DisplayStatusWidget(
+                    status: Status.pass,
+                    isActive: false,
+                    text: 'Pass',
+                  ),
                 ),
-                SizedBox(height: 10),
-                DisplayStatusWidget(
-                  status: Status.fail,
-                  isActive: false,
-                  text: 'Fail',
+                SizedBox(width: 10),
+                Expanded(
+                  child: DisplayStatusWidget(
+                    status: Status.fail,
+                    isActive: false,
+                    text: 'Fail',
+                  ),
                 ),
-                SizedBox(height: 10),
-                DisplayStatusWidget(
-                  isActive: false,
-                  status: Status.na,
-                  text: 'N/A',
-                ),
-                SizedBox(height: 10),
-                DisplayStatusWidget(
-                  status: Status.pass,
-                  isActive: true,
-                  text: 'Pass',
-                ),
-                SizedBox(height: 10),
-                DisplayStatusWidget(
-                  status: Status.fail,
-                  isActive: true,
-                  text: 'Fail',
-                ),
-                SizedBox(height: 10),
-                DisplayStatusWidget(
-                  isActive: true,
-                  status: Status.na,
-                  text: 'N/A',
+                SizedBox(width: 10),
+                Expanded(
+                  child: DisplayStatusWidget(
+                    isActive: false,
+                    status: Status.na,
+                    text: 'N/A',
+                  ),
                 ),
               ],
             ),
-          ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: DisplayStatusWidget(
+                    status: Status.pass,
+                    isActive: true,
+                    text: 'Pass',
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: DisplayStatusWidget(
+                    status: Status.fail,
+                    isActive: true,
+                    text: 'Fail',
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: DisplayStatusWidget(
+                    isActive: true,
+                    status: Status.na,
+                    text: 'N/A',
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
